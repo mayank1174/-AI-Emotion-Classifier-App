@@ -23,11 +23,10 @@ def classify_image():
     
     file = request.files['image']
     
-    result = [
-        {'emotion': 'Happy', 'score': 65.0, 'color': '#22c55e'},
-        {'emotion': 'Neutral', 'score': 20.0, 'color': '#6b7280'},
-        {'emotion': 'Surprised', 'score': 15.0, 'color': '#a855f7'},
-    ]
+    # Placeholder facial emotion analysis:
+    # return the same emotion set format as text/audio classification
+    placeholder_input = 'happy sad angry fearful anxious stressed worried confused excited surprised disgusted calm neutral'
+    result = classify_emotion(placeholder_input)
     return jsonify(result)
 
 
