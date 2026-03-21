@@ -1,0 +1,246 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #f4f4f7; /* Very soft cool gray, less glaring than pure white */
+  --foreground: #111118;
+  --card: rgba(255, 255, 255, 0.6); /* Slightly more transparent glass */
+  --card-foreground: #111118;
+  --popover: #ffffff;
+  --popover-foreground: #111118;
+  
+  /* Strict 3-color system */
+  --primary: #7B61FF; 
+  --primary-foreground: #ffffff;
+  
+  --secondary: #FF4D8D;
+  --secondary-foreground: #ffffff;
+
+  --muted: #f1f1f5;
+  --muted-foreground: #6b7280;
+  --accent: #f1f1f5;
+  --accent-foreground: #111118;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(123, 97, 255, 0.15); /* Soft purple border */
+  --input: rgba(123, 97, 255, 0.15);
+  --input-background: rgba(255, 255, 255, 0.8);
+  --ring: rgba(123, 97, 255, 0.5);
+  --radius: 1rem; /* Softer, larger radius */
+}
+
+.dark {
+  --background: #09090b; /* Deep dark */
+  --foreground: #fafafa;
+  --card: rgba(24, 24, 27, 0.6); /* Dark glassmorphism */
+  --card-foreground: #fafafa;
+  --popover: #09090b;
+  --popover-foreground: #fafafa;
+  
+  /* Primary & Secondary remain vibrant in dark mode */
+  --primary: #7B61FF; 
+  --primary-foreground: #ffffff;
+  --secondary: #FF4D8D;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  --border: rgba(123, 97, 255, 0.2);
+  --input: rgba(123, 97, 255, 0.2);
+  --input-background: rgba(24, 24, 27, 0.8);
+  --ring: #7B61FF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  /* Title gradient text shifting animation */
+  .animate-gradient-text {
+    background-size: 200% 200%;
+    animation: gradientShift 12s linear infinite;
+    will-change: background-position;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* ── Emotion AI UI Animations ───────────────────────── */
+
+@keyframes glow-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer sweep across the title text */
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Gentle floating bob */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Letter-spacing breathe */
+@keyframes ls-breathe {
+  0%, 100% { letter-spacing: -0.02em; }
+  50%       { letter-spacing: 0.04em; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtitle-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  50%       { box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+}
+
+/* ── Main title: flowing gradient + shimmer + float + ls-breathe ── */
+.animate-glow-title {
+  background: linear-gradient(
+    270deg,
+    #a855f7, #ec4899, #6366f1, #db2777, #8b5cf6, #ec4899, #a855f7
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  animation:
+    glow-flow      4s ease infinite,
+    float-bob      3s ease-in-out 0.8s infinite,
+    ls-breathe     4s ease-in-out 1s infinite,
+    fade-in-up     0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Sparkle icons flanking the title */
+.animate-sparkle-left {
+  animation: fade-in-up 0.6s ease both, float-bob 3.2s ease-in-out 0.4s infinite;
+}
+
+.animate-sparkle-right {
+  animation: fade-in-up 0.6s ease 0.1s both, float-bob 3.2s ease-in-out 0.7s infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.24, 1, 0.36, 1) both;
+}
+
+.animate-subtitle-in {
+  animation: subtitle-in 0.9s ease 0.3s both;
+}
+
+.animate-mic-pulse {
+  animation: mic-pulse 1.4s ease-in-out infinite;
+}
