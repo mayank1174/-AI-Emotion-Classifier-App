@@ -1,11 +1,21 @@
+# Emotion Classifier App
 
-  # Emotion Classifier App
+This app is separated into a Python backend and a React/Vite frontend.
 
-  This is a code bundle for Emotion Classifier App.
+## Running the Backend
 
-  ## Running the code
+1. Navigate to the backend directory:
+   `cd backend`
+2. Install dependencies:
+   `pip install -r requirements.txt`
+3. Start the Flask server:
+   `python app.py`
 
-  Run `npm i` to install the dependencies.
+## Running the Frontend
 
-  Run `npm run dev` to start the development server.
-  
+1. Navigate to the frontend directory:
+   `cd frontend`
+2. Install the dependencies:
+   `npm install`
+3. Start the development server:
+   `npm run dev`
