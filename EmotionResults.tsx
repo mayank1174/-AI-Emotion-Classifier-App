@@ -101,7 +101,12 @@ export function EmotionResults({ emotions, inputText, title = "Emotion Analysis 
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${emotion.score}%` }}
-                        transition={{ duration: 1, delay: 0.1 + (index * 0.05), ease: "easeOut" }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 60,
+                          damping: 18,
+                          delay: 0.08 + index * 0.04
+                        }}
                         className="h-full rounded-full"
                         style={{ backgroundColor: emotion.color }}
                       />
