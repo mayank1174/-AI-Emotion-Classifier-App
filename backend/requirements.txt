@@ -2,7 +2,7 @@
 flask
 flask-cors
 transformers
-torch==2.2.2+cpu
+torch==2.4.0
 librosa
 scikit-learn
 soundfile
